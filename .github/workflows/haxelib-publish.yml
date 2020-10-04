@@ -1,0 +1,32 @@
+name: haxelib-publish
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: 4.1.2
+      - run: |
+          haxe -version
+          haxelib submit . ${{ secrets.HAXELIB_PASSWORD }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: endel/expose-haxelib-action@master
+        id: haxelib
+      - name: Create Release
+        id: create_release
+        if: steps.haxelib.outputs.name
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.haxelib.outputs.version }}
+          release_name: ${{ steps.haxelib.outputs.version }}
+          body: ${{ steps.haxelib.outputs.releasenote }}
+          draft: false
+          prerelease: false

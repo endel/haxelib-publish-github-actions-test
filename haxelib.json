@@ -1,0 +1,12 @@
+{
+  "name": "github-actions-release-test",
+  "url" : "https://github.com/endel/haxelib-publish-github-actions-test",
+  "license": "MIT",
+  "tags": ["github-actions"],
+  "description": "Testing haxelib publishing using GitHub Actions ",
+  "version": "1.0.1",
+  "classPath": "src/",
+  "releasenote": "First automated test.",
+  "contributors": ["endel"],
+  "dependencies": {}
+}
