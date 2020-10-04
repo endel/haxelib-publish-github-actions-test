@@ -4,6 +4,12 @@ This is a GitHub Actions Workflow demonstration that automatically creates a Git
 
 See the [workflow implementation here](.github/workflows/release-and-publish.yml)
 
+## Secrets
+
+You will need to provide your haxelib password as a secret on GitHub (Settings > Secrets -> New Secret)
+
+- `HAXELIB_PASSWORD`: Your haxelib password
+
 ## License
 
 MIT
