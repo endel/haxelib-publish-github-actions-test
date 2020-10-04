@@ -1,4 +1,4 @@
-name: haxelib-publish
+name: Publish to Haxelib
 
 on:
   release:
