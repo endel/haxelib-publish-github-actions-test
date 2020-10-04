@@ -15,6 +15,7 @@ jobs:
       uses: EndBug/version-check@v1 # You can choose the version/branch you prefer.
       with:
         file-name: haxelib.json
+        token: ${{ secrets.GITHUB_TOKEN }}
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Create Release
