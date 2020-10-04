@@ -1,14 +1,22 @@
-on:
-  push:
-    branches:
-      - master
-
-name: Create Release
+name: Build & Release
+on: push
 
 jobs:
   build:
-    name: Create Release
+    name: Checkout & Build
     runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+      #
+      # ADD TEST/BUILD STEPS HERE
+      #
+
+  publish:
+    name: Check version & Create release
+    runs-on: ubuntu-latest
+    needs: build
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
