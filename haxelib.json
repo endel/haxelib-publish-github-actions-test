@@ -4,7 +4,7 @@
   "license": "MIT",
   "tags": ["github-actions"],
   "description": "Update version on haxelib.json file",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "classPath": "src/",
   "releasenote": "First automated test.",
   "contributors": ["endel"],
