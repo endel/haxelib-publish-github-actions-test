@@ -24,6 +24,7 @@ jobs:
       id: check
       with:
         file-name: haxelib.json
+        diff-search: true
     - name: Create Release
       if: steps.check.outputs.changed
       uses: actions/create-release@v1
