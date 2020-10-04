@@ -4,7 +4,7 @@
   "license": "MIT",
   "tags": ["github-actions"],
   "description": "Testing haxelib publishing using GitHub Actions ",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "classPath": "src/",
   "releasenote": "First automated test.",
   "contributors": ["endel"],
