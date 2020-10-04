@@ -8,6 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: krdlab/setup-haxe@v1
         with:
           haxe-version: 4.1.2
