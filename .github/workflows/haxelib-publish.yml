@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: krdlab/setup-haxe@v1
-        with
+        with:
           haxe-version: 4.1.2
       - run: |
           haxe -version
