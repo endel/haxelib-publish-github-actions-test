@@ -1,0 +1,31 @@
+on:
+  push:
+    branches:
+      - master
+
+name: Create Release
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+    - id: check # This will be the reference for getting the outputs.
+      uses: EndBug/version-check@v1 # You can choose the version/branch you prefer.
+      with: # All these parameters are optional, check their descriptions to see if you need them.
+        file-name: haxelib.json
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Create Release
+      if: steps.check.outputs.changed
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.check.outputs.version }}
+        # tag_name: ${{ github.ref }}
+        release_name: ${{ steps.check.outputs.version }}
+        # release_name: ${{ github.ref }}
+        draft: false
+        prerelease: false
