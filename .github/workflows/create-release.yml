@@ -10,17 +10,14 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - id: check # This will be the reference for getting the outputs.
-      uses: EndBug/version-check@v1 # You can choose the version/branch you prefer.
-      with:
-        file-name: haxelib.json
-        token: ${{ secrets.GITHUB_TOKEN }}
     - name: Checkout code
       uses: actions/checkout@v2
+    - uses: EndBug/version-check@v1
+      id: check
+      with:
+        file-name: haxelib.json
     - name: Create Release
       if: steps.check.outputs.changed
-      id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
