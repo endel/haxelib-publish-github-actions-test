@@ -10,9 +10,10 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - id: check # This will be the reference for getting the outputs.
       uses: EndBug/version-check@v1 # You can choose the version/branch you prefer.
-      with: # All these parameters are optional, check their descriptions to see if you need them.
+      with:
         file-name: haxelib.json
     - name: Checkout code
       uses: actions/checkout@v2
